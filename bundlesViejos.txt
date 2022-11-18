@@ -1,0 +1,802 @@
+using System.Web;
+using System.Web.Optimization;
+
+namespace OneCard_ServicioCliente
+{
+public class BundleConfig
+{
+// For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
+public static void RegisterBundles(BundleCollection bundles)
+{
+
+var Select2_css = new[] { "~/Content/select2.css" };
+var Select2_js = new[] { "~/Scripts/select2.js" };
+
+var Swal2_css = new[] { "~/Content/sweetalert.css" };
+var Swal2_js = new[] { "~/Scripts/sweetalert2.js" };
+
+var datetimepicker_css = new[] { "~/Content/jquery.datetimepicker.css" };
+var datetimepicker_js = new[] { "~/Scripts/jquery.datetimepicker.js" };
+
+var bootstrapTable_css = new[] { "~/Content/bootstrap-table.css" };
+var bootstrapTable_js = new[] {
+"~/Scripts/bootstrap-table.js",
+"~/Scripts/bootstrap-table-es-ES.js"
+};
+
+var Moment_js = new[] { "~/Scripts/moment.js" };
+var Linq_js = new[] { "~/Scripts/jquery.linq.js" };
+
+var Handlebars_js = new[] {
+"~/Scripts/handlebars v4.1.2.js",
+"~/Scripts/Core.handlebars.js" };
+
+bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+"~/Scripts/jquery-{version}.js",
+"~/Scripts/onecard-core.js"));
+
+bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+"~/Scripts/jquery-ui.min.js"));
+
+bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+"~/Scripts/jquery.validate*"));
+
+// Use the development version of Modernizr to develop with and learn from. Then, when you're
+// ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+"~/Scripts/modernizr-*"));
+
+bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+"~/Scripts/bootstrap.js",
+"~/Scripts/respond.js",
+"~/Scripts/bootstrap-datepicker.js",
+"~/Scripts/bootstrap-datepicker-es.js"));
+
+bundles.Add(new ScriptBundle("~/bundles/Scripts/js").Include(
+"~/Scripts/select2.js",
+"~/Scripts/main.js"));
+
+bundles.Add(new ScriptBundle("~/bundles/jets").Include(
+"~/Scripts/jets.js"));
+
+
+bundles.Add(new ScriptBundle("~/bundles/select2").Include(Select2_js));
+
+bundles.Add(new StyleBundle("~/Content/select2").Include(Select2_css));
+
+bundles.Add(new StyleBundle("~/Content/font-awesome").Include(
+"~/Content/font-awesome.css"));
+
+bundles.Add(new ScriptBundle("~/bundles/linq").Include(Linq_js));
+
+bundles.Add(new ScriptBundle("~/bundles/swal").Include(Swal2_js));
+
+bundles.Add(new ScriptBundle("~/bundles/moment").Include(Moment_js));
+bundles.Add(new ScriptBundle("~/bundles/bootstrapTableExport").Include(
+"~/Scripts/Invoice/RFCValidator/bootstrap-table-export.js"));
+
+bundles.Add(new ScriptBundle("~/bundles/handlebars").Include(Handlebars_js));
+
+bundles.Add(new ScriptBundle("~/bundles/Facturacion").Include(
+"~/Scripts/jquery.validate.js",
+"~/Scripts/Facturacion/Facturacion.js",
+"~/Scripts/Facturacion/Pagos.js",
+"~/Scripts/Facturacion/bootstrap-table.js",
+"~/Scripts/Facturacion/select2.js"
+));
+
+bundles.Add(new ScriptBundle("~/bundles/PantallasFacturacion").Include(
+"~/Scripts/jquery.validate.js",
+"~/Scripts/Facturacion/bootstrap-table.js",
+"~/Scripts/Facturacion/select2.js"
+));
+
+bundles.Add(new StyleBundle("~/Content/datetimepicker").Include(datetimepicker_css));
+
+bundles.Add(new ScriptBundle("~/bundles/datetimepicker").Include(datetimepicker_js));
+
+bundles.Add(new StyleBundle("~/Content/CancelFacturacion_CSS").Include(
+"~/Content/Invoice/CancelFacturacion/Cancel_Styles.css"
+));
+bundles.Add(new ScriptBundle("~/bundles/CancelFacturacion").Include(
+"~/Scripts/Invoice/Cancel/InvoiceCancel.js"
+));
+
+bundles.Add(new StyleBundle("~/Content/css").Include(
+"~/Content/font-awesome.css",
+"~/Content/bootstrap.css",
+"~/Content/bootstrap-datepicker.css",
+"~/Content/select2.css",
+"~/Content/Facturacion/select2-bootstrap.css",
+"~/Content/Facturacion/bootstrap-table.css",
+"~/Content/site.css"));
+
+bundles.Add(new StyleBundle("~/Content/loader").Include(
+"~/Content/css-loader.css"));
+
+bundles.Add(new StyleBundle("~/Content/table_all").Include(
+"~/Content/bootstrap-table.css"));
+
+// bundle usado para corregir un error en bootstratable al usar los filtros de busqueda, se usa la version 1.53
+bundles.Add(new StyleBundle("~/Content/table_allSearch").Include(
+"~/Content/bootstrap-table-v1_53.css"));
+
+bundles.Add(new StyleBundle("~/Content/swal").Include(Swal2_css));
+
+bundles.Add(new StyleBundle("~/Content/select2-bootstrap").Include(
+"~/Content/select2-bootstrap.css"));
+
+bundles.Add(new ScriptBundle("~/bundles/table_all").Include(
+"~/Scripts/bootstrap-table.js",
+"~/Scripts/bootstrap-table-es-ES.js"));
+
+bundles.Add(new ScriptBundle("~/bundles/table_clarification").Include(
+"~/Scripts/bootstrap-table-v1_11.js",
+"~/Scripts/bootstrap-table-es-ES.js"));
+
+// bundle usado para corregir un error en bootstratable al usar los filtros de busqueda, se usa la version 1.53
+bundles.Add(new ScriptBundle("~/bundles/table_clarificationSearch").Include(
+"~/Scripts/bootstrap-table-v1_53.js",
+"~/Scripts/bootstrap-table-es-ES-v1_53.js"));
+
+bundles.Add(new ScriptBundle("~/bundles/clarification").Include(
+"~/Scripts/intranet/clarification/clarification.js",
+"~/Scripts/intranet/clarification/ClarificationSeg.js"
+));
+
+bundles.Add(new ScriptBundle("~/bundles/export").Include(
+"~/Scripts/export/shim.js",
+"~/Scripts/export/jszip.js",
+"~/Scripts/export/xlsx.js",
+"~/Scripts/export/ods.js"));
+
+bundles.Add(new ScriptBundle("~/bundles/excel").Include(
+"~/Scripts/Excel/jszip.js",
+"~/Scripts/Excel/xlsx.js",
+"~/Scripts/Excel/SiscardMasivo.js"
+));
+
+bundles.Add(new ScriptBundle("~/bundles/MassiveReplacement").Include(
+"~/Scripts/Excel/jszip.js",
+"~/Scripts/Excel/xlsx.js",
+"~/Scripts/Excel/MassiveReplacement.js"
+));
+
+bundles.Add(new ScriptBundle("~/ajax/native").Include(
+"~/Scripts/jquery-ajax-native.js"));
+
+bundles.Add(new ScriptBundle("~/bundles/Package").Include(
+"~/Scripts/Package/Package.js"
+));
+
+//Nuevo Main Styles CSS
+bundles.Add(new StyleBundle("~/Content/newCSS").Include(
+"~/Content/NuevoMain/NuevoMainCss.css"));
+
+// Login
+bundles.Add(new StyleBundle("~/Content/loginCSS").Include(
+"~/Content/Account/login/loginStyles.css"));
+bundles.Add(new ScriptBundle("~/bundles/login").Include(
+"~/Scripts/Account/login.js"));
+
+// - firtsAccesChangeNewPassword
+bundles.Add(new StyleBundle("~/Content/firstAccesChangeNewPasswordCSS").Include(
+"~/Content/Account/firstAccessChangePassword/firstAccesChangePasswordStyles.css"));
+
+bundles.Add(new ScriptBundle("~/bundles/FirtsAccessChangePassword").Include(
+"~/Scripts/Account/FirtsAccessChangePassword.js"));
+
+// -_ChangePasswordPartial
+bundles.Add(new ScriptBundle("~/bundles/_ChangePasswordPartial").Include(
+"~/Scripts/Account/_ChangePasswordPartial/OnecardCierre.js"));
+
+//bundles Reportes intranet...
+
+bundles.Add(new ScriptBundle("~/bundles/Reportes/OnecardCierre").Include(
+"~/Scripts/Reportes/OnecardCierre/OnecardCierre.js"));
+
+bundles.Add(new ScriptBundle("~/bundles/Reportes/OnecardDetalle").Include(
+"~/Scripts/Reportes/OnecardDetalle/OnecardDetalle.js"));
+
+bundles.Add(new ScriptBundle("~/bundles/Reportes/HemsaBalance").Include(
+"~/Scripts/Reportes/HemsaBalance/HemsaBalance.js"));
+
+bundles.Add(new ScriptBundle("~/bundles/Reportes/HemsaReportes").Include(
+"~/Scripts/Reportes/HemsaReportes/HemsaReportes.js"));
+
+bundles.Add(new ScriptBundle("~/bundles/Reportes/Prosa").Include(
+"~/Scripts/Reportes/Prosa/Prosa.js"));
+
+bundles.Add(new ScriptBundle("~/bundles/Reports/CardHistory").Include(
+"~/Areas/Intranet/Scripts/Reports/CardHistory/cardhistory.js"));
+bundles.Add(new StyleBundle("~/Content/Reports/CardHistory").Include(
+"~/Areas/Intranet/Styles/Reports/CardHistory/cardhistory.css"));
+
+//Chart
+bundles.Add(new ScriptBundle("~/bundles/Reportes/ScriptsReportes/c3").Include(
+"~/Scripts/Reportes/ScriptsReportes/c3/c3.js"));
+
+bundles.Add(new ScriptBundle("~/bundles/Reportes/ScriptsReportes/d3").Include(
+"~/Scripts/Reportes/ScriptsReportes/d3/d3.js"));
+
+bundles.Add(new StyleBundle("~/Content/Reportes/chart_C3").Include(
+"~/Content/Reportes/c3/c3.css"));
+//loading
+bundles.Add(new StyleBundle("~/Content/ReportesLoading").Include(
+"~/Content/Reportes/loadingReporte.css"));
+//canvas
+bundles.Add(new ScriptBundle("~/bundles/Reportes/ScriptsReportes/canvas").Include(
+"~/Scripts/Reportes/ScriptsReportes/canvas/html2canvas.js"));
+
+//Excel masivo 
+bundles.Add(new ScriptBundle("~/bundles/Reportes/ScriptsReportes/excelMasivo").Include(
+"~/Scripts/Reportes/ScriptsReportes/excelMasivo/FileSaver.js",
+"~/Scripts/Reportes/ScriptsReportes/excelMasivo/Jhxlsx.js",
+"~/Scripts/Reportes/ScriptsReportes/excelMasivo/xlsx.core.min.js"));
+bundles.Add(new ScriptBundle("~/bundles/Reportes/ScriptsReportes/moment").Include(
+"~/Scripts/Reportes/ScriptsReportes/moment/moment.js"));
+
+//Precios Combustibles Nacionales y Fronteras
+bundles.Add(new ScriptBundle("~/bundles/Invoice/PreciosCombustiblesFronteras").Include(
+"~/Scripts/Invoice/PreciosCombustiblesFronteras/PreciosCombustiblesFronteras.js"));
+bundles.Add(new ScriptBundle("~/bundles/Invoice/PrecioCombustible").Include(
+"~/Scripts/Invoice/PrecioCombustible/PreciosCombustible.js"));
+bundles.Add(new ScriptBundle("~/bundles/Invoice/ActualizarPreciosCombustibles").Include(
+"~/Scripts/Invoice/ActualizarPreciosCombustibles.js"));
+
+//Despositos CUENTA MAESTRA
+bundles.Add(new ScriptBundle("~/bundles/DepositsCM").Include(
+"~/Scripts/DepositsCM/DepositsCM.js"));
+bundles.Add(new StyleBundle("~/Content/StylesDepositCM").Include(
+"~/Content/StylesDepositsCM/Deposits_CM.css"));
+
+//SCRITS MasterAccountRefillReports
+bundles.Add(new ScriptBundle("~/bundles/MasterAccountRefillReports").Include(
+"~/Scripts/MasterAccountRefillReports/MasterAccountRefillReports.js"));
+
+//INFO CARD
+bundles.Add(new ScriptBundle("~/bundles/infoCard").Include(
+"~/Scripts/InfoCard/InfoCard.js"));
+bundles.Add(new StyleBundle("~/Content/info_Card").Include(
+"~/Content/infoCard/CardInfo.css"));
+
+//Cambio de estatus masivo
+bundles.Add(new ScriptBundle("~/bundles/StatusMassive").Include(
+"~/Scripts/Intranet/StatusMassive/StatusMassive.js"));
+bundles.Add(new StyleBundle("~/Content/StatusMassive").Include(
+"~/Content/Intranet/StatusMassive/Status_Massive.css"));
+
+//Cambio de producto a tarjeta masivo
+bundles.Add(new ScriptBundle("~/bundles/ProductsCardMassive").Include(
+"~/Scripts/Intranet/ProductsCardMassive/ProductsCardMassive.js"));
+bundles.Add(new StyleBundle("~/Content/ProductsCardMassive").Include(
+"~/Content/Intranet/ProductsCardMassive/Products_CardMassive.css"));
+
+//Cambio de producto a tarjeta 
+bundles.Add(new ScriptBundle("~/bundles/ProductChange").Include(
+"~/Scripts/Intranet/ProductChange/ProductChange.js"));
+
+
+
+//libreria para cambio de estatus y producto masivo
+bundles.Add(new ScriptBundle("~/bundles/ExcelMassive").Include(
+"~/Scripts/Intranet/ExcelMassive/xlsx.full.min.js",
+"~/Scripts/Intranet/ExcelMassive/dropsheet.js",
+"~/Scripts/Intranet/ExcelMassive/spin.js"));
+
+//RECARGA AUTOMATICA
+bundles.Add(new StyleBundle("~/bundles/recargaAutomatica").Include(
+"~/Content/Intranet/ConfigAutomaticRefill/Config_AutomaticRefill.css"));
+bundles.Add(new ScriptBundle("~/bundles/ConfigAutomaticRefill").Include(
+"~/Scripts/Soporte/ConfigAutomaticRefill/ConfigAutomaticRefill.js"));
+
+//ESTATUS RECARGA AUTOMATICA
+bundles.Add(new StyleBundle("~/bundles/EstatusOperacion").Include(
+"~/Content/Intranet/StatusOperations/Status_Operations.css"));
+bundles.Add(new ScriptBundle("~/bundles/StatusOperation").Include(
+"~/Scripts/Soporte/StatusOperations/StatusOperations.js"));
+
+//Reporte Invoice facturas
+bundles.Add(new ScriptBundle("~/bundles/ReportInvoice").Include(
+"~/Scripts/Invoice/ReportInvoice/ReportInvoice.js"));
+bundles.Add(new StyleBundle("~/bundles/ReportInvoiceCSS").Include(
+"~/Content/Invoice/ReportInvoice/Report_Invoice.css"));
+
+//Cambio de producto masivo bootstrap-editable 
+bundles.Add(new ScriptBundle("~/bundles/Cuenta_Limite").Include(
+"~/Scripts/Intranet/AccountLimit/AccountLimit.js"));
+bundles.Add(new StyleBundle("~/bundles/CuentaLimite").Include(
+"~/Content/Intranet/AccountLimit/Account_Limit.css"));
+bundles.Add(new ScriptBundle("~/bundles/bootstrap-editable").Include(
+"~/Scripts/Intranet/bootstrap-editable/bootstrap-editable.js"));
+bundles.Add(new StyleBundle("~/bundles/bootstrapEditable").Include(
+"~/Content/Intranet/bootstrap3Editable-1.5.1/bootstrap-editable.css"));
+
+//Reporte de operaciones por facturas
+bundles.Add(new ScriptBundle("~/bundles/OperacionesFacturas").Include(
+"~/Scripts/Invoice/OperacionesFacturas/GetInvoicePendings.js"));
+bundles.Add(new StyleBundle("~/bundles/ReportInvoicePending_CSS").Include(
+"~/Content/Invoice/ReportInvoicePending/Report_InvoicePending.css"));
+
+//Reporte - ReportMovsCloud
+bundles.Add(new ScriptBundle("~/bundles/ReportMovsCloud").Include(
+"~/Scripts/Intranet/ReportMovsCloud/ReportMovsCloud.js"));
+bundles.Add(new StyleBundle("~/bundles/ReportMovsCloud_CSS").Include(
+"~/Content/Intranet/ReportMovsCloud/ReportMovsCloud_Styles.css"));
+
+//Reporte - ReportMovs
+bundles.Add(new ScriptBundle("~/bundles/ReportMovs").Include(
+"~/Scripts/Intranet/ReportMovs/ReportMovs.js"));
+bundles.Add(new StyleBundle("~/bundles/ReportMovs_CSS").Include(
+"~/Content/Intranet/ReportMovs/ReportMovs_Styles.css"));
+
+//Reporte - MasterAccount
+bundles.Add(new ScriptBundle("~/bundles/ReportMasterAccount").Include(
+"~/Scripts/Intranet/ReportMasterAccount/ReportMasterAccount.js"));
+bundles.Add(new StyleBundle("~/bundles/ReportMasterAccount_CSS").Include(
+"~/Content/Intranet/ReportMasterAccount/ReportMasterAccount_Styles.css"));
+
+// - MembershipLock
+bundles.Add(new ScriptBundle("~/bundles/MembershipLock").Include(
+"~/Scripts/Intranet/MembershipLock/MembershipLock.js"));
+bundles.Add(new StyleBundle("~/bundles/MembershipLockt_CSS").Include(
+"~/Content/Intranet/MembershipLock/MembershipLock_Styles.css"));
+
+// - Reports Fuel
+bundles.Add(new ScriptBundle("~/bundles/Fuel").Include(
+"~/Scripts/Intranet/Fuel/Fuel.js"));
+bundles.Add(new StyleBundle("~/bundles/Fuel_CSS").Include(
+"~/Content/Intranet/Fuel/Fuel_Styles.css"));
+
+// - Reports FuelStation
+bundles.Add(new ScriptBundle("~/bundles/FuelStation").Include(
+"~/Scripts/Intranet/FuelStation/FuelStation.js"));
+bundles.Add(new StyleBundle("~/bundles/FuelStation_CSS").Include(
+"~/Content/Intranet/FuelStation/FuelStation_Styles.css"));
+
+// - Reports Employees
+bundles.Add(new ScriptBundle("~/bundles/ReportEmployees").Include(
+"~/Scripts/Intranet/ReportEmployees/ReportEmployees.js"));
+bundles.Add(new StyleBundle("~/bundles/ReportEmployees_CSS").Include(
+"~/Content/Intranet/ReportEmployees/ReportEmployees_Styles.css"));
+
+// - Reports Employees2
+bundles.Add(new ScriptBundle("~/bundles/ReportEmployees2").Include(
+"~/Scripts/Intranet/ReportEmployees/ReportEmployees2.js"));
+bundles.Add(new StyleBundle("~/bundles/ReportEmployees2_CSS").Include(
+"~/Content/Intranet/ReportEmployees/ReportEmployees2_Styles.css"));
+
+//Conciliacion Recargas
+bundles.Add(new StyleBundle("~/bundles/ConciliacionRecargas_CSS").Include(
+"~/Content/Intranet/Conciliacion/ConciliacionRecargas.css"));
+
+// - RFC Validator
+bundles.Add(new ScriptBundle("~/bundles/RFCValidator").Include(
+"~/Scripts/Invoice/RFCValidator/bootstrap-table-export.js",
+"~/Scripts/Invoice/RFCValidator/tableExport.min.js",
+"~/Scripts/Invoice/RFCValidator/RFCValidator.js"));
+bundles.Add(new StyleBundle("~/Content/RFCValidator").Include(
+"~/Content/Invoice/RFCValidator/RFCValidator.css"));
+
+
+// - BatchRefll
+bundles.Add(new ScriptBundle("~/bundles/BatchRefill").Include(
+"~/Scripts/Intranet/BatchRefill/BatchRefill.js"));
+bundles.Add(new StyleBundle("~/Content/BatchRefill_CSS").Include(
+"~/Content/Intranet/BatchRefill/BatchRefill_Styles.css"));
+
+// - BlockCards
+bundles.Add(new ScriptBundle("~/bundles/BlockCards").Include(
+"~/Scripts/Intranet/BlockCards/BlockCards.js"));
+bundles.Add(new ScriptBundle("~/bundles/favico").Include(
+"~/Scripts/Intranet/BlockCards/favico-0.3.10.js"));
+bundles.Add(new StyleBundle("~/Content/BlockCards_CSS").Include(
+"~/Content/Intranet/BlockCards/BlockCards_Styles.css"));
+
+// - Aprovisionar
+bundles.Add(new ScriptBundle("~/bundles/Aprovisionar").Include(
+"~/Scripts/Intranet/Aprovisionar/Aprovisionar.js"));
+
+bundles.Add(new StyleBundle("~/Content/Aprovisionar_CSS").Include(
+"~/Content/Intranet/Aprovisionar/Aprovisionar_Styles.css"));
+
+// - MasterAccountRefill
+bundles.Add(new ScriptBundle("~/bundles/MasterAccountRefill").Include(
+"~/Scripts/Intranet/MasterAccountRefill/MasterAccountRefill.js"));
+
+bundles.Add(new StyleBundle("~/Content/MasterAccountRefill_CSS").Include(
+"~/Content/Intranet/MasterAccountRefill/MasterAccountRefill_Styles.css"));
+
+// - Reportes/Hemsa
+bundles.Add(new ScriptBundle("~/bundles/ReportHemsa").Include(
+"~/Scripts/Reportes/ReportesTarjetasHemsa/ReportHemsa.js"));
+bundles.Add(new StyleBundle("~/Content/ReportHemsa_CSS").Include(
+"~/Content/Reportes/ReporteTarjetaHemsa/ReportHemsa_Styles.css"));
+
+
+// - Autorizacion - Hemsa
+bundles.Add(new ScriptBundle("~/bundles/HemsaAutorizacion").Include(
+"~/Scripts/Hemsa/HemsaAutorizacion/HemsaAutorizacion.js"));
+bundles.Add(new StyleBundle("~/Content/HemsaAutorizacionCSS").Include(
+"~/Content/Hemsa/HemsaAutorizacion/HemsaAutorizacion.css"));
+
+
+// - STPReference
+bundles.Add(new ScriptBundle("~/bundles/Reference").Include(
+"~/Scripts/STP/STPReference.js"));
+bundles.Add(new StyleBundle("~/Content/Reference_CSS").Include(
+"~/Content/STP/Reference_Styles.css"));
+// RH --Sala De Juntas
+bundles.Add(new ScriptBundle("~/bundles/salajuntas/components").Include(
+"~/Scripts/Facturacion/bootstrap-table.js",
+"~/Scripts/handlebars v4.1.2.js",
+"~/Scripts/Core.handlebars.js",
+"~/Scripts/swag.js",
+"~/Scripts/sweetalert2.js"));
+bundles.Add(new ScriptBundle("~/bundles/salajuntas/adminstracion/solicitudes").Include(
+"~/Scripts/Facturacion/bootstrap-table.js",
+"~/Areas/RH/Scripts/petitionsFunc.js",
+"~/Areas/RH/Scripts/horariosFunc.js",
+"~/Areas/RH/Scripts/Administracion/solicitudes.js"));
+bundles.Add(new ScriptBundle("~/bundles/salajuntas/adminstracion/salas").Include(
+"~/Scripts/Facturacion/bootstrap-table.js",
+"~/Areas/RH/Scripts/petitionsFunc.js",
+"~/Areas/RH/Scripts/Administracion/salas.js"));
+bundles.Add(new ScriptBundle("~/bundles/salajuntas/visualization/index").Include(
+"~/Scripts/Facturacion/bootstrap-table.js",
+"~/Areas/RH/Scripts/petitionsFunc.js",
+"~/Areas/RH/Scripts/horariosFunc.js",
+"~/Areas/RH/Scripts/Visualization/index.js"));
+bundles.Add(new StyleBundle("~/SalaJuntas/css").Include(
+"~/Areas/RH/Content/rhSalas.css",
+"~/Areas/RH/Content/Administration/tableOC.css",
+"~/Content/sweetalert.css"));
+bundles.Add(new StyleBundle("~/bundles/SalaJuntas/fullcalendarCss").Include(
+"~/Areas/RH/Content/FullCalendar/bootstrap/main.css",
+"~/Areas/RH/Content/FullCalendar/core/main.css",
+"~/Areas/RH/Content/FullCalendar/daygrid/main.css",
+"~/Areas/RH/Content/FullCalendar/timegrid/main.css",
+"~/Areas/RH/Content/FullCalendar/list/main.css"));
+bundles.Add(new ScriptBundle("~/bundles/salajuntas/fullcalendarJs").Include(
+"~/Areas/RH/Content/FullCalendar/core/main.js",
+"~/Areas/RH/Content/FullCalendar/bootstrap/main.js",
+"~/Areas/RH/Content/FullCalendar/daygrid/main.js",
+"~/Areas/RH/Content/FullCalendar/timegrid/main.js",
+"~/Areas/RH/Content/FullCalendar/list/main.js",
+"~/Areas/RH/Content/FullCalendar/luxon/main.js",
+"~/Areas/RH/Content/FullCalendar/moment/main.js"));
+//------
+
+//Recarga Manual
+bundles.Add(new StyleBundle("~/bundles/ManualRefillCSS").Include(
+"~/Content/Intranet/ManualRefill/ManualRefill_Styles.css"));
+bundles.Add(new ScriptBundle("~/bundles/ManualRefill").Include(
+"~/Scripts/Intranet/ManualRefill/ManualRefill.js"));
+
+//Reporte ManualRefill
+bundles.Add(new StyleBundle("~/bundles/ManualRefillLogCSS").Include(
+"~/Content/Intranet/ManualRefillLog/ManualRefillLog_Styles.css"));
+bundles.Add(new ScriptBundle("~/bundles/ManualRefillLog").Include(
+"~/Scripts/Intranet/ManualRefillLog/ManualRefillLog.js"));
+
+//Validate RFC / CURP
+bundles.Add(new StyleBundle("~/bundles/RFCCURP_ValidateCSS").Include(
+"~/Content/Intranet/ValidateCurpRfc/RFCCURP_Validate_Styles.css"));
+bundles.Add(new ScriptBundle("~/bundles/RFCCURP_Validate").Include(
+"~/Scripts/Intranet/ValidateCurpRfc/RFCCURP_Validate.js"));
+
+
+//PLD Prevencion de antilavado
+bundles.Add(new StyleBundle("~/Content/PLDcss").Include(
+"~/Content/STP/PLD_Styles.css"));
+bundles.Add(new ScriptBundle("~/bundles/PLD").Include(
+"~/Scripts/STP/PLD.js"));
+
+//PLD Prevencion de antilavado
+bundles.Add(new StyleBundle("~/Content/CardReplaceCSS").Include(
+"~/Content/Intranet/CardReplace/CardReplace_Styles.css"));
+bundles.Add(new ScriptBundle("~/bundles/CardReplace").Include(
+"~/Scripts/Intranet/CardReplace/CardReplace.js"));
+
+// - RolesAdmin Integrador
+bundles.Add(new ScriptBundle("~/bundles/RolesAdmin").Include(
+"~/Scripts/Integrador/RolesAdmin/RolesAdmin.js"));
+bundles.Add(new StyleBundle("~/Content/RolesAdminCSS").Include(
+"~/Content/Integrador/RolesAdmin/RolesAdmin_Styles.css"));
+
+// - Convenio-Usuario Integrador
+bundles.Add(new ScriptBundle("~/bundles/AssignAgreementUser").Include(
+"~/Scripts/Integrador/AssignAgreementUser/AssignAgreementUser.js"));
+bundles.Add(new StyleBundle("~/Content/AssignAgreementUserCSS").Include(
+"~/Content/Integrador/AssignAgreementUser/AssignAgreementUser_Styles.css"));
+
+// - Nuevo Usuario Integrador
+bundles.Add(new ScriptBundle("~/bundles/Account").Include(
+"~/Scripts/Integrador/Account/Account.js"));
+bundles.Add(new StyleBundle("~/Content/AccountCSS").Include(
+"~/Content/Integrador/Account/Account_Styles.css"));
+
+// - Employees Integrador
+bundles.Add(new ScriptBundle("~/bundles/Employees").Include(
+"~/Scripts/Integrador/Employees/Employees.js"));
+bundles.Add(new StyleBundle("~/Content/EmployeesCSS").Include(
+"~/Content/Integrador/Employees/Employees_Styles.css"));
+// - Certification
+bundles.Add(new ScriptBundle("~/bundles/CertificationJS").Include(
+"~/Scripts/Intranet/Certification/Certification.js"));
+
+// - ClosingAct
+bundles.Add(new ScriptBundle("~/bundles/ClosingActJS").Include(
+"~/Scripts/Intranet/ClosingAct/ClosingAct.js"));
+
+// - Abonos
+bundles.Add(new ScriptBundle("~/bundles/AbonosJS").Include(
+"~/Scripts/Invoice/RFCValidator/bootstrap-table-export.js",
+"~/Scripts/Invoice/RFCValidator/tableExport.min.js",
+"~/Scripts/Intranet/Abonos/Abonos.js"));
+
+// - Alta Anuncios
+bundles.Add(new StyleBundle("~/Content/AnunciosCSS").Include(
+"~/Content/Intranet/Anuncios/slick-theme.css",
+"~/Content/Intranet/Anuncios/Anuncios.css"));
+bundles.Add(new ScriptBundle("~/bundles/AltaAnunciosJS").Include(
+"~/Scripts/Intranet/Anuncios/slick.js",
+"~/Scripts/swag.js",
+"~/Scripts/Intranet/Anuncios/nicEdit.js",
+"~/Scripts/Intranet/Anuncios/Anuncios.js"));
+
+// - FuelCardLock
+bundles.Add(new ScriptBundle("~/bundles/FuelCardLock").Include(
+"~/Scripts/Intranet/FuelCardLock/FuelCardLock.js"));
+bundles.Add(new StyleBundle("~/Content/FuelCardLockCSS").Include(
+"~/Content/Intranet/FuelCardLock/FuelCardLock_Styles.css"));
+
+// - btTablev1.1.15.5
+bundles.Add(new ScriptBundle("~/bundles/jsbtTablev1-15-5").Include(
+"~/Scripts/btTablev1-15-5/bootstrap-table.min.js",
+"~/Scripts/btTablev1-15-5/bootstrap-table-es-MX.min.js"));
+
+bundles.Add(new ScriptBundle("~/bundles/btTableExportv1-15-5").Include(
+"~/Scripts/btTablev1-15-5/tableExport.js",
+"~/Scripts/btTablev1-15-5/libs/js-xlsx/xlsx.core.min.js",
+"~/Scripts/btTablev1-15-5/bootstrap-table.min.js",
+"~/Scripts/btTablev1-15-5/bootstrap-table-es-MX.min.js",
+"~/Scripts/btTablev1-15-5/extensions/export/bootstrap-table-export.min.js"));
+
+bundles.Add(new StyleBundle("~/Content/cssbtTablev1-15-5").Include(
+"~/Content/btTable/bootstrap-table.min.css"));
+
+bundles.Add(new ScriptBundle("~/bundles/Reconciliacion").Include(
+"~/Areas/Conciliacion/Scripts/Core.handlebars.js",
+"~/Scripts/jquery.oc-core-intranet.js",
+"~/Areas/Conciliacion/Scripts/TableFormatters.js",
+"~/Areas/Conciliacion/Scripts/RevisionConciliacion_defaults.js",
+"~/Areas/Conciliacion/Scripts/DetalleTransaccion_defaults.js",
+"~/Areas/Conciliacion/Scripts/Conciliacion.js",
+"~/Areas/Conciliacion/Scripts/Brands/OXXO.js",
+"~/Areas/Conciliacion/Scripts/Brands/Mastercard.js",
+"~/Areas/Conciliacion/Scripts/Brands/Carnet.js",
+"~/Areas/Conciliacion/Scripts/Conciliacion_helpers.js",
+"~/Areas/Conciliacion/Scripts/Catalogs/globalVariables.js"
+));
+bundles.Add(new StyleBundle("~/Content/Reconciliacion_CSS").Include(
+"~/Areas/Conciliacion/Styles/Conciliacion.css"));
+bundles.Add(new ScriptBundle("~/bundles/Reconciliacion-Operations").Include(
+"~/Areas/Conciliacion/Scripts/Departments/Operations.js"
+));
+bundles.Add(new StyleBundle("~/Content/Reconciliacion-Operations_CSS").Include(
+"~/Areas/Conciliacion/Styles/Operations.css"));
+bundles.Add(new ScriptBundle("~/bundles/Reconciliacion-Clarifications").Include(
+"~/Areas/Conciliacion/Scripts/Departments/Clarifications.js"
+));
+bundles.Add(new StyleBundle("~/Content/Reconciliacion-Clarifications_CSS").Include(
+"~/Areas/Conciliacion/Styles/Clarifications.css"));
+
+//Reconciliation Files Management
+bundles.Add(new ScriptBundle("~/bundles/ReconciliationFilesManagement").Include(
+"~/Areas/Conciliacion/Scripts/FilesManagement.js"));
+bundles.Add(new StyleBundle("~/Content/ReconciliationFilesManagementCSS").Include(
+"~/Areas/Conciliacion/Styles/FilesManagement.css"));
+
+//Reconciliation - Cobranza Extemporanea
+bundles.Add(new ScriptBundle("~/bundles/CobranzaExtemporanea").Include(
+"~/Areas/Conciliacion/Scripts/CobranzaExtemporanea.js"));
+
+// - Dropzone
+bundles.Add(new ScriptBundle("~/bundles/Dropzone").Include(
+"~/Scripts/dropzone.js"));
+bundles.Add(new StyleBundle("~/Content/DropzoneCSS").Include(
+"~/Content/dropzone.css"));
+
+// - Manejador de parametros de URL - https://github.com/alrusdi/jquery-plugin-query-object
+bundles.Add(new ScriptBundle("~/bundles/jQueryUrlQueryObject").Include(
+"~/Scripts/jquery.query-object.js"));
+
+// - Repetidor dinamicos de elementos HTML - https://www.jqueryscript.net/form/Form-Fields-Repeater.html
+bundles.Add(new ScriptBundle("~/bundles/jQueryFormRepeater").Include(
+"~/Areas/Conciliacion/Scripts/External/repeater.js"));
+
+// - Plugin para enmascarar inputs de moneda - https://plentz.github.io/jquery-maskmoney/
+bundles.Add(new ScriptBundle("~/bundles/jQueryMaskMoney").Include(
+"~/Areas/Conciliacion/Scripts/External/jquery.maskMoney.min.js"));
+
+
+// - InfoUsuarios
+bundles.Add(new ScriptBundle("~/bundles/InfoUsuariosJS").Include(
+"~/Scripts/Travex/InfoUsuarios/InfoUsuarios.js"));
+bundles.Add(new StyleBundle("~/Content/InfoUsuariosCSS").Include(
+"~/Content/Travex/InfoUsuarios/InfoUsuarios.css"));
+
+// - Usuarios de oxxo
+bundles.Add(new ScriptBundle("~/bundles/OxxoUsersJS").Include(
+"~/Scripts/Intranet/OxxoUsers/OxxoUsers.js"));
+//Products
+bundles.Add(new StyleBundle("~/bundles/products/designsCss").Include(
+"~/Areas/Products/Content/dropzone.css",
+"~/Areas/Products/Content/designs.css"));
+bundles.Add(new StyleBundle("~/bundles/products/ProductionHistoryCss").Include(
+"~/Areas/Products/Content/ProductionHistory.css",
+"~/Content/bootstrap-datepicker.css"));
+bundles.Add(new ScriptBundle("~/bundles/products/designsJs").Include(
+"~/Areas/Products/Scripts/dropzone.js",
+"~/Areas/Products/Scripts/designs.js"));
+bundles.Add(new ScriptBundle("~/bundles/products/ProductionHistoryJs").Include(
+"~/Areas/Products/Scripts/ProductionHistory.js",
+"~/Areas/Products/Scripts/jquery.handlebars.js",
+"~/Scripts/bootstrap-datepicker.js",
+"~/Scripts/bootstrap-datepicker-es.js"));
+
+
+// - InfoUsuarios
+bundles.Add(new ScriptBundle("~/bundles/UnlockUser").Include(
+"~/Scripts/Integrador/Account/UnlockUser.js"));
+
+// - InfoUsuarios
+bundles.Add(new ScriptBundle("~/bundles/adminRoles").Include(
+"~/Scripts/Admin.js"));
+
+// - Agreement
+bundles.Add(new ScriptBundle("~/bundles/Agreement").Include(
+"~/Scripts/Intranet/Agreement/Agreement.js"));
+bundles.Add(new StyleBundle("~/bundles/AgreementCss").Include(
+"~/Content/Intranet/Agreement/Agreement_Styles.css"));
+
+// - Affiliations
+bundles.Add(new ScriptBundle("~/bundles/Affiliations").Include(
+"~/Scripts/Intranet/Affiliations/Affiliations.js"));
+bundles.Add(new StyleBundle("~/bundles/AffiliationsCss").Include(
+"~/Content/Intranet/Affiliations/Affiliations_Styles.css"));
+
+// <---- HELPDESK ---->
+
+//  Classifications
+bundles.Add(new ScriptBundle("~/bundles/Classifications/MainJS").Include(
+"~/Scripts/bootstrap.js",
+"~/Scripts/select2.js",
+"~/Scripts/main.js",
+"~/Scripts/jquery-3.1.1.js",
+"~/Scripts/swag.js"
+));
+
+bundles.Add(new ScriptBundle("~/bundles/Classifications").Include(
+"~/Areas/HelpDesk/Scripts/Clasificaciones/Classifications.js"));
+
+bundles.Add(new StyleBundle("~/bundles/Classifications/MainCSS").Include(
+"~/Content/bootstrap.css",
+"~/Content/select2.css"
+));
+
+//  Users/Departments
+
+bundles.Add(new ScriptBundle("~/bundles/UserDepartment/MainJS").Include(
+"~/Scripts/bootstrap.js",
+"~/Scripts/select2.js",
+"~/Scripts/main.js",
+"~/Scripts/jquery-3.1.1.js",
+"~/Scripts/swag.js"
+));
+bundles.Add(new ScriptBundle("~/bundles/UserDepartment").Include(
+"~/Areas/HelpDesk/Scripts/Clasificaciones/UserDepartment.js"));
+
+bundles.Add(new StyleBundle("~/bundles/UserDepartment/UserDepartmentCSS").Include(
+"~/Areas/HelpDesk/Content/UserDepartment.css"
+));
+
+bundles.Add(new StyleBundle("~/bundles/UserDepartment/MainCSS").Include(
+"~/Content/bootstrap.css",
+"~/Content/select2.css"
+));
+
+
+// BinSponsor -> Produccion de tarjetas para fintech
+bundles.Add(new ScriptBundle("~/bundles/BinSponsorJS").Include(
+"~/Areas/Intranet/Scripts/BinSponsor/Index.js"));
+bundles.Add(new StyleBundle("~/bundles/BinSponsorCSS").Include(
+"~/Areas/Intranet/Styles/BinSponsor/Index.css"
+));
+
+// RH/RegisterUser
+bundles.Add(new ScriptBundle("~/bundles/RegisterUser/MainJS").Include(
+"~/Scripts/bootstrap.js",
+"~/Scripts/select2.js",
+"~/Scripts/main.js",
+"~/Scripts/jquery-3.1.1.js",
+"~/Scripts/swag.js"
+));
+
+bundles.Add(new ScriptBundle("~/bundles/RegisterUser").Include(
+"~/Areas/RH/Scripts/RegisterUser/RegisterUser.js",
+"~/Areas/RH/Scripts/RegisterUser/FamilyInfo.js",
+"~/Areas/RH/Scripts/RegisterUser/JobInfo.js",
+"~/Areas/RH/Scripts/RegisterUser/StudiesInfo.js",
+"~/Areas/RH/Scripts/Validator/validator.js"));
+
+bundles.Add(new StyleBundle("~/bundles/RegisterUser/MainCSS").Include(
+"~/Content/bootstrap.css",
+"~/Content/select2.css"
+));
+
+//RH/Departments
+bundles.Add(new ScriptBundle("~/bundles/RH/Departments/MainJS").Include(
+"~/Scripts/bootstrap.js",
+"~/Scripts/select2.js",
+"~/Scripts/main.js",
+"~/Scripts/jquery-3.1.1.js",
+"~/Scripts/swag.js",
+"~/Areas/RH/Scripts/Announcements/Department.js"
+));
+
+bundles.Add(new ScriptBundle("~/bundles/RH/Departments/DepatmentsJS").Include(
+"~/Areas/RH/Scripts/Announcements/Department.js"
+));
+
+bundles.Add(new StyleBundle("~/bundles/RH/Departments/MainCSS").Include(
+"~/Content/bootstrap.css",
+"~/Content/select2.css"
+));
+
+//RH/Groups
+bundles.Add(new ScriptBundle("~/bundles/RH/Groups/MainJS").Include(
+"~/Scripts/bootstrap.js",
+"~/Scripts/select2.js",
+"~/Scripts/main.js",
+"~/Scripts/jquery-3.1.1.js",
+"~/Scripts/swag.js"
+));
+
+bundles.Add(new ScriptBundle("~/bundles/RH/Groups/GroupsJS").Include(
+"~/Areas/RH/Scripts/Announcements/Groups.js"
+));
+
+
+//RH/Vacations
+bundles.Add(new ScriptBundle("~/bundles/RH/Vacations").Include(
+"~/Areas/RH/Scripts/Vacations/Vacations.js",
+"~/Areas/RH/Scripts/Vacations/frm_Vacations.js"
+));
+
+bundles.Add(new ScriptBundle("~/bundles/RH/AuthorizationJS").Include(
+"~/Areas/RH/Scripts/Vacations/Authorization.js"
+));
+
+//Facturación 4.0
+bundles.Add(new ScriptBundle("~/bundles/FacturacionJS")
+.Include(Select2_js)
+.Include(Swal2_js)
+.Include(Moment_js)
+.Include(Handlebars_js)
+.Include(Linq_js)
+.Include(datetimepicker_js)
+.Include(bootstrapTable_js)
+.Include("~/Areas/Invoice40/Scripts/Invoice40/Invoice40.js")
+.Include("~/Areas/Invoice40/Scripts/Invoice40/Pagos.js"));
+
+bundles.Add(new StyleBundle("~/bundles/Facturacion40CSS")
+.Include(Select2_css)
+.Include(Swal2_css)
+.Include(datetimepicker_css)
+.Include(bootstrapTable_css)
+.Include("~/Areas/Invoice40/Content/Invoice40/Invoice40.css"));
+}
+}
+}
